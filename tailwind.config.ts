@@ -7,7 +7,26 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+     animation: {
+        meteor: "meteor var(--duration, 10s) linear infinite",
+      },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "translateY(-20%)", opacity: "0" },
+          "30%": { opacity: "1" },
+          "100%": { transform: "translateY(120vh)", opacity: "0" },
+        },
+      },
+    },
+    colors: {
+      secondary: "#BABABA",
+      blue: {
+        500: "#4762ff",
+        600: " #121127",
+        100: "#F4F6FA",
+      },
+    }
   },
   plugins: [],
 }
