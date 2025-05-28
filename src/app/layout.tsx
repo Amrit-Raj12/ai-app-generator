@@ -1,15 +1,23 @@
+// app/layout.tsx
 import { ThemeProvider } from '@/components/contexts/ThemeContext'
-import Header from '@/components/Header' // Adjust the path if different
 import './globals.css'
+import { ReactNode } from 'react'
+import Header from '@/components/Header'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+export const metadata = {
+  title: 'My App',
+  description: 'App description',
+}
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
         <ThemeProvider>
           <Header />
           {children}
-        </ThemeProvider>
+          </ThemeProvider>
       </body>
     </html>
   )
