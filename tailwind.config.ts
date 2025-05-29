@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-     animation: {
+      animation: {
         meteor: "meteor var(--duration, 10s) linear infinite",
       },
       keyframes: {
@@ -26,6 +26,7 @@ const config: Config = {
         600: " #121127",
         100: "#F4F6FA",
       },
+      dark: "#2A2B2E"
     }
   },
   plugins: [],
