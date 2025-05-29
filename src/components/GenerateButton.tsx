@@ -128,7 +128,7 @@ export default function GenerateButton({ isGenerating, onClick }: GenerateButton
         )}
       </div>
 
-      {!isGenerating && particleState === "ready" && (
+      {!isGenerating && (
         <Particles
           id="generate-particles"
           className="pointer-events-none absolute -bottom-4 -left-4 -right-4 -top-4 z-0 opacity-0 transition-opacity group-hover:opacity-100"
