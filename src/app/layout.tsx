@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { ThemeProvider } from '@/components/contexts/ThemeContext'
 import './globals.css'
 import { ReactNode } from 'react'

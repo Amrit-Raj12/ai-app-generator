@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { X, Menu } from 'lucide-react';
 import { useTheme } from '@/components/contexts/ThemeContext';
+import Link from 'next/link';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,23 +23,26 @@ const Header = () => {
       <div className='flex justify-between items-center py-4 px-4 md:px-8'>
         {/* Logo */}
         <div className='flex items-center w-[50%] md:w-[20%]'>
-          <div className={`text-2xl font-bold cursor-pointer transition-colors ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
+          <Link href="/" className={`text-2xl font-bold cursor-pointer transition-colors ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
             Logo
-          </div>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className='hidden md:flex items-center justify-center w-[60%]'>
           <nav className='flex space-x-8'>
-            <a href="#pricing" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+            <Link href="/generate" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+              Generate
+            </Link>
+            <Link href="#pricing" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
               Pricing
-            </a>
-            <a href="#browse-history" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+            </Link>
+            <Link href="#browse-history" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
               Browse History
-            </a>
-            <a href="#features" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+            </Link>
+            <Link href="#features" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
               Features
-            </a>
+            </Link>
           </nav>
         </div>
 
@@ -72,6 +76,8 @@ const Header = () => {
             <div className={`absolute top-3 right-4 w-0.5 h-0.5 bg-blue-400 rounded-full transition-opacity duration-300 delay-100 ${isDark ? 'opacity-100' : 'opacity-0'}`} />
           </button>
 
+          <Link href="/login" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Login</Link>
+
           {/* Hamburger Icon */}
           <button onClick={toggleMenu} className="md:hidden focus:outline-none">
             {menuOpen ? <X className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-700'}`} /> : <Menu className={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-700'}`} />}
@@ -86,9 +92,10 @@ const Header = () => {
           <button onClick={toggleMenu}><X className={`w-5 h-5 ${isDark ? 'text-white' : 'text-gray-700'}`} /></button>
         </div>
         <nav className='flex flex-col p-4 space-y-4'>
-          <a href="#pricing" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Pricing</a>
-          <a href="#browse-history" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Browse History</a>
-          <a href="#features" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Features</a>
+          <Link href="#pricing" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Pricing</Link>
+          <Link href="#browse-history" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Browse History</Link>
+          <Link href="#features" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Features</Link>
+          <Link href="/login" className={`font-medium ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>Login</Link>
         </nav>
       </div>
 
