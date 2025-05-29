@@ -23,14 +23,17 @@ const Header = () => {
       <div className='flex justify-between items-center py-4 px-4 md:px-8'>
         {/* Logo */}
         <div className='flex items-center w-[50%] md:w-[20%]'>
-          <div className={`text-2xl font-bold cursor-pointer transition-colors ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
+          <Link href="/" className={`text-2xl font-bold cursor-pointer transition-colors ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
             Logo
-          </div>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className='hidden md:flex items-center justify-center w-[60%]'>
           <nav className='flex space-x-8'>
+            <Link href="/generate" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+              Generate
+            </Link>
             <Link href="#pricing" className={`font-medium transition-colors ${isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
               Pricing
             </Link>
