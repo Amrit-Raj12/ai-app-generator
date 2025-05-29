@@ -17,9 +17,9 @@ const Login = () => {
 
     return (
         <section className={`${isDark ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900'
-            : 'bg-gradient-to-br from-blue-50 via-white to-indigo-50'} py-20 lg:py-[120px]`}>
-            <div className="container mx-auto mt-[20px] md:mt-0">
-                <div className="-mx-4 flex flex-wrap">
+            : 'bg-gradient-to-br from-blue-50 via-white to-indigo-50'} py-1 lg:py-[120px]`}>
+            <div className="container mx-auto mt-[10px] md:mt-0">
+                <div className="flex flex-wrap">
                     <div className="w-full px-4">
                         <div className={` ${isDark ? "bg-slate-800 border border-slate-700/50" : "bg-white bg-slate-100 border-slate-200/50 text-gray-800"}  shadow-2xl relative mx-auto max-w-[525px] overflow-hidden rounded-tl-4xl rounded-br-4xl px-10 py-16 text-center sm:px-12 md:px-[60px]`}>
                             <div className="mb-10 text-left md:mb-5">
