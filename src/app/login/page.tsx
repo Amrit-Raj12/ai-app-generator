@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from "@/components/contexts/ThemeContext";
+import InputBox from "@/components/InputBox";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -45,6 +46,22 @@ const Login = () => {
                                     placeholder="Password"
                                     isDark={isDark}
                                 />
+
+                                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                                    <label className="flex items-center space-x-2">
+                                        <input
+                                            type="checkbox"
+                                            className="form-checkbox h-4 w-4 text-indigo-600"
+                                        />
+                                        <span>Remember me</span>
+                                    </label>
+                                    <Link
+                                        href="/#"
+                                        className="mb-2 inline-block text-base hover:text-primary hover:underline hover:text-white"
+                                    >
+                                        Forget Password?
+                                    </Link>
+                                </div>
                                 <div className="mb-10">
                                     <input
                                         type="submit"
@@ -53,48 +70,35 @@ const Login = () => {
                                     />
                                 </div>
                             </form>
+                            <p className="text-center text-base">or</p>
                             <p className="mb-6 text-base">
                                 Connect With
                             </p>
                             <ul className="-mx-2 mb-12 flex justify-between">
+
                                 <li className="w-full px-2">
                                     <Link
-                                        href="/#"
-                                        className="flex h-11 items-center justify-center rounded-md bg-[#4064AC] hover:bg-opacity-90"
-                                    >
-                                        <svg
-                                            width="10"
-                                            height="20"
-                                            viewBox="0 0 10 20"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M9.29878 8H7.74898H7.19548V7.35484V5.35484V4.70968H7.74898H8.91133C9.21575 4.70968 9.46483 4.45161 9.46483 4.06452V0.645161C9.46483 0.290323 9.24343 0 8.91133 0H6.89106C4.70474 0 3.18262 1.80645 3.18262 4.48387V7.29032V7.93548H2.62912H0.747223C0.359774 7.93548 0 8.29032 0 8.80645V11.129C0 11.5806 0.304424 12 0.747223 12H2.57377H3.12727V12.6452V19.129C3.12727 19.5806 3.43169 20 3.87449 20H6.47593C6.64198 20 6.78036 19.9032 6.89106 19.7742C7.00176 19.6452 7.08478 19.4194 7.08478 19.2258V12.6774V12.0323H7.66596H8.91133C9.2711 12.0323 9.54785 11.7742 9.6032 11.3871V11.3548V11.3226L9.99065 9.09677C10.0183 8.87097 9.99065 8.6129 9.8246 8.35484C9.76925 8.19355 9.52018 8.03226 9.29878 8Z"
-                                                fill="white"
-                                            />
-                                        </svg>
-                                    </Link>
-                                </li>
-                                <li className="w-full px-2">
-                                    <Link
-                                        href="/#"
-                                        className="flex h-11 items-center justify-center rounded-md bg-[#1C9CEA] hover:bg-opacity-90"
+                                        href="https://github.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex h-11 items-center justify-center rounded-md bg-black hover:bg-opacity-90"
                                     >
                                         <svg
                                             width="22"
-                                            height="16"
-                                            viewBox="0 0 22 16"
-                                            fill="none"
+                                            height="22"
+                                            viewBox="0 0 24 24"
+                                            fill="white"
                                             xmlns="http://www.w3.org/2000/svg"
                                         >
                                             <path
-                                                d="M19.5516 2.75538L20.9 1.25245C21.2903 0.845401 21.3968 0.53229 21.4323 0.375734C20.3677 0.939335 19.3742 1.1272 18.7355 1.1272H18.4871L18.3452 1.00196C17.4935 0.344423 16.429 0 15.2935 0C12.8097 0 10.8581 1.81605 10.8581 3.91389C10.8581 4.03914 10.8581 4.22701 10.8935 4.35225L11 4.97847L10.2548 4.94716C5.7129 4.82192 1.9871 1.37769 1.38387 0.782779C0.390323 2.34834 0.958064 3.85127 1.56129 4.79061L2.76774 6.54403L0.851613 5.6047C0.887097 6.91977 1.45484 7.95303 2.55484 8.7045L3.5129 9.33072L2.55484 9.67515C3.15806 11.272 4.50645 11.9296 5.5 12.18L6.8129 12.4932L5.57097 13.2446C3.58387 14.4971 1.1 14.4031 0 14.3092C2.23548 15.6869 4.89677 16 6.74194 16C8.12581 16 9.15484 15.8748 9.40322 15.7808C19.3387 13.7143 19.8 5.8865 19.8 4.32094V4.10176L20.0129 3.97652C21.2194 2.97456 21.7161 2.44227 22 2.12916C21.8935 2.16047 21.7516 2.22309 21.6097 2.2544L19.5516 2.75538Z"
-                                                fill="white"
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d="M12 0C5.372 0 0 5.372 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.256c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.729.082-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.654 1.653.243 2.874.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.804 5.625-5.475 5.921.43.371.823 1.103.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.299 24 12c0-6.628-5.372-12-12-12z"
                                             />
                                         </svg>
                                     </Link>
                                 </li>
+
                                 <li className="w-full px-2">
                                     <Link
                                         href="/#"
@@ -115,12 +119,7 @@ const Login = () => {
                                     </Link>
                                 </li>
                             </ul>
-                            <Link
-                                href="/#"
-                                className="mb-2 inline-block text-base hover:text-primary hover:underline"
-                            >
-                                Forget Password?
-                            </Link>
+
 
                             <p className={`${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}>
                                 <Link href="/terms" className="pr-0.5">Terms & conditions | </Link>
@@ -358,16 +357,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const InputBox = ({ isDark, type, placeholder, name }) => {
-    return (
-        <div className="mb-6">
-            <input
-                type={type}
-                placeholder={placeholder}
-                name={name}
-                className={`${isDark ? 'text-white border-slate-400/50' : 'text-black border-slate-700/50'} w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base outline-none focus:border-primary focus-visible:shadow-none`}
-            />
-        </div>
-    );
-};
