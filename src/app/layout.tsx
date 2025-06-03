@@ -3,9 +3,10 @@
 import { ThemeProvider } from '@/components/contexts/ThemeContext'
 import './globals.css'
 import { ReactNode } from 'react'
-import Header from '@/components/Header'
+// import Header from '@/components/Header'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState } from 'react'
+import NewHeader from '@/components/NewHeader'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   // Create QueryClient instance - using useState to ensure it's stable across re-renders
@@ -28,7 +29,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
-            <Header />
+            {/* <Header /> */}
+            <NewHeader />
             {children}
           </ThemeProvider>
         </QueryClientProvider>
