@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '@/components/contexts/ThemeContext';
 import Link from 'next/link';
+import ToggleButton from './ToggleButton';
 
 
 export default function NewHeader() {
@@ -69,32 +70,7 @@ export default function NewHeader() {
                                 Get Started
                             </Link>
                         </li>
-                        <button
-                            onClick={toggleTheme}
-                            className={`relative w-14 h-7 rounded-full p-1 transition-all duration-300 ease-in-out ${isDark ? 'bg-gray-700' : 'bg-blue-200'} hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer`}
-                            aria-label="Toggle theme"
-                        >
-                            <div className={`absolute inset-0 rounded-full transition-colors duration-300 ${isDark ? 'bg-gray-800' : 'bg-yellow-100'}`} />
-                            <div className={`relative w-5 h-5 rounded-full shadow-md transform transition-all duration-300 ${isDark ? 'translate-x-7 bg-black' : 'translate-x-0 bg-white'} flex items-center justify-center`}>
-                                {/* Sun Icon */}
-                                <svg className={`w-3 h-3 text-yellow-500 absolute transition-all duration-300 ${isDark ? 'opacity-0 rotate-180 scale-0' : 'opacity-100 rotate-0 scale-100'}`} fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z..."
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-
-                                {/* Moon Icon */}
-                                <svg className={`w-3 h-3 text-blue-400 absolute transition-all duration-300 ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-0'}`} fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M17.293 13.293A8 8 0 016.707 2.707..." />
-                                </svg>
-                            </div>
-
-                            {/* Decorative Stars */}
-                            <div className={`absolute top-1 right-2 w-1 h-1 bg-blue-300 rounded-full transition-opacity duration-300 ${isDark ? 'opacity-100' : 'opacity-0'}`} />
-                            <div className={`absolute top-3 right-4 w-0.5 h-0.5 bg-blue-400 rounded-full transition-opacity duration-300 delay-100 ${isDark ? 'opacity-100' : 'opacity-0'}`} />
-                        </button>
+                        <ToggleButton />
                     </ul>
 
                 </nav>
