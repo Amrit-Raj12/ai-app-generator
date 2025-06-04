@@ -1,6 +1,10 @@
 'use client'
 import { useTheme } from "@/components/contexts/ThemeContext";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ShimmerButton } from "@/components/magicui/shimmer-button";
+import CursorTrail from "@/components/CursorTrail";
+
 
 export default function Home() {
   const { theme } = useTheme()
@@ -10,10 +14,13 @@ export default function Home() {
     setIsDark(theme === 'dark')
   }, [theme])
 
-   useEffect(() => {
+  useEffect(() => {
     const script = document.createElement('script');
     script.src = '/finisher-header.es5.min.js';
     script.async = true;
+
+    const bg = isDark ? '#000000' : '#ffffff'
+    const particlesBg = isDark ? '#ffffff' : '#814AC8'
 
     script.onload = () => {
       // @ts-ignore
@@ -29,8 +36,8 @@ export default function Home() {
           y: { min: 0, max: 0.6 }
         },
         colors: {
-          background: '#201e30',
-          particles: ['#fbfcca', '#d7f3fe', '#ffd0a7']
+          background: bg,
+          particles: [particlesBg]
         },
         blending: 'overlay',
         opacity: {
@@ -47,17 +54,52 @@ export default function Home() {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [isDark]);
 
 
   return (
     <>
       {/* This div is required for finisher-header */}
       <div className="finisher-header" style={{ position: 'fixed', inset: 0, zIndex: -1 }}></div>
+      <CursorTrail />
 
-      <h1 style={{ position: 'relative', zIndex: 1, color: '#fff' }}>
-        Hello from Next.js
-      </h1>
+      <div className="flex items-center flex-col justify-center text-center h-screen max-w-[900px] w-full mx-auto">
+        <motion.h1
+          initial={{ opacity: 0, x: -100, filter: "blur(8px)" }} // 👈 from left
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className={`${isDark ? "text-white" : "text-black"} md:text-[70px] text-[45px] font-bold`}
+        >
+          Intelligent Automation for Modern Businesses.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, x: -100, filter: "blur(8px)" }} // 👈 from left
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          className={`${isDark ? "text-white" : "text-black"} md:text-[18px] text-[16px]`}
+        >
+          Xtract brings AI automation to your fingertips & streamline tasks.
+        </motion.p>
+
+        <motion.div 
+        initial={{ opacity: 0, x: -100, filter: "blur(8px)" }} // 👈 from left
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+        className="flex gap-[20px] lg:mt-[25px] mt-[15px]">
+        <ShimmerButton className="shadow-2xl " isDark>
+          <span className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
+            Start Generate
+          </span>
+        </ShimmerButton>
+        <ShimmerButton className="shadow-2xl ">
+          <span className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
+            Start Generate
+          </span>
+        </ShimmerButton>
+        </motion.div>
+
+      </div>
     </>
   );
 }
