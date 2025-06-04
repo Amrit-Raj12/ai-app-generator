@@ -8,7 +8,7 @@ export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
   borderRadius?: string;
   shimmerDuration?: string;
   background?: string;
-  isDark?: boolean; // New prop
+  isDark?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
@@ -24,7 +24,7 @@ export const ShimmerButton = React.forwardRef<
       shimmerDuration = "3s",
       borderRadius = "15px",
       background = "rgba(0, 0, 0, 1)",
-      isDark = false, // Default value
+      isDark = false,
       className,
       children,
       ...props
@@ -47,7 +47,9 @@ export const ShimmerButton = React.forwardRef<
         }
         className={cn(
           "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-white [background:var(--bg)] [border-radius:var(--radius)] dark:text-black",
-          "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
+          // Hover and active animation
+          "transform-gpu transition-all duration-300 ease-in-out",
+          "hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]",
           className,
         )}
         ref={ref}
