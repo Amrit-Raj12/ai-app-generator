@@ -5,11 +5,17 @@ import { motion } from "framer-motion";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import CursorTrail from "@/components/CursorTrail";
 import { ArrowUpRight } from "lucide-react";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { WordRotate } from "@/components/magicui/word-rotate";
+import { useRouter } from "next/navigation";
+import CustomCursor from "@/components/CustomCursor";
 
 
 export default function Home() {
   const { theme } = useTheme()
   const [isDark, setIsDark] = useState(false)
+
+  const router = useRouter()
 
   useEffect(() => {
     setIsDark(theme === 'dark')
@@ -59,12 +65,13 @@ export default function Home() {
 
 
   return (
-    <>
+    <div className="custom-cursor">
       {/* This div is required for finisher-header */}
       <div className="finisher-header" style={{ position: 'fixed', inset: 0, zIndex: -1 }}></div>
-      <CursorTrail />
-
+      <CustomCursor />
+      <CursorTrail/>
       <div className="flex items-center flex-col justify-center text-center h-screen max-w-[900px] w-full mx-auto">
+        <WordRotate words={["Prompt.", "Generate.", "Deliver."]} className={`text-4xl`} />
         <motion.h1
           initial={{ opacity: 0, x: -100, filter: "blur(8px)" }} // 👈 from left
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -88,20 +95,21 @@ export default function Home() {
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         className="flex gap-[20px] lg:mt-[25px] mt-[15px]">
-        <ShimmerButton className="shadow-2xl flex itemms-center justify-center gap-2" isDark>
+        {/* <ShimmerButton className="shadow-2xl flex itemms-center justify-center gap-2" isDark>
           <p className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
             Start Generate
           </p>
           <ArrowUpRight className="text-white"/>
-        </ShimmerButton>
+        </ShimmerButton> */}
+        <InteractiveHoverButton className={` bg-[#814AC8] ${isDark ? "text-white": "text-white"}`} onClick={()=> router.push("/generate")}>Start Generate</InteractiveHoverButton>
         <ShimmerButton className="shadow-2xl ">
           <span className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
-            Start Generate
+            Services
           </span>
         </ShimmerButton>
         </motion.div>
 
       </div>
-    </>
+    </div>
   );
 }
