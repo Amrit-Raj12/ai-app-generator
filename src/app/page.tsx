@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import CursorTrail from "@/components/CursorTrail";
+import { ArrowUpRight } from "lucide-react";
 
 
 export default function Home() {
@@ -87,10 +88,11 @@ export default function Home() {
           animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         className="flex gap-[20px] lg:mt-[25px] mt-[15px]">
-        <ShimmerButton className="shadow-2xl " isDark>
-          <span className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
+        <ShimmerButton className="shadow-2xl flex itemms-center justify-center gap-2" isDark>
+          <p className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
             Start Generate
-          </span>
+          </p>
+          <ArrowUpRight className="text-white"/>
         </ShimmerButton>
         <ShimmerButton className="shadow-2xl ">
           <span className={`whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight ${isDark ? "text-white from-white to-slate-900/10" : "text-white"} lg:text-lg`}>
