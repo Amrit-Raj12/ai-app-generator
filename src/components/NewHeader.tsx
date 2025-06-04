@@ -70,7 +70,10 @@ export default function NewHeader() {
                                 Get Started
                             </Link>
                         </li>
-                        <ToggleButton />
+                        <div className="lg:mt-[-5px]">
+                            <ToggleButton />
+                        </div>
+
                     </ul>
 
                 </nav>
