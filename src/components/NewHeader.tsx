@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@/components/contexts/ThemeContext';
 import Link from 'next/link';
 import ToggleButton from './ToggleButton';
+import { ArrowRightToLine } from 'lucide-react';
+import ToggleButtonMobile from './ToggleButtonMobile';
 
 
 export default function NewHeader() {
@@ -33,7 +35,10 @@ export default function NewHeader() {
                 </Link>
 
                 {/* Mobile Menu Toggle */}
-                <div className="md:hidden">
+                <div className="md:hidden flex justify-center gap-2.5 items-center">
+                    <div>
+                        <ToggleButtonMobile />
+                    </div>
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className={`${isDark ? 'text-gray-100' : 'text-[#814AC8]'} focus:outline-none transition-colors duration-300`}
@@ -48,15 +53,19 @@ export default function NewHeader() {
                             />
                         </svg>
                     </button>
+
                 </div>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:block">
-                    <ul className={`${isDark ? 'text-gray-100' : 'text-[#000000]'} flex space-x-8`}>
+                    <ul className={`${isDark ? 'text-gray-100' : 'text-[#000000]'} flex items-center space-x-8`}>
                         <li><Link href="#" className="hover:text-[#814AC8] transition-colors duration-300">Home</Link></li>
-                        <li><Link href="#" className="hover:text-[#814AC8] transition-colors duration-300">About</Link></li>
+                        <li><Link href="/generate" className="hover:text-[#814AC8] transition-colors duration-300">Generate</Link></li>
+                        <li><Link href="/pricing" className="hover:text-[#814AC8] transition-colors duration-300">Pricing</Link>
+                        </li>
+                        <li><Link href="/history" className="hover:text-[#814AC8] transition-colors duration-300">Browse History</Link></li>
                         <li className="group relative">
-                            <Link href="#" className="hover:text-[#814AC8] transition-colors duration-300">Services</Link>
+                            <Link href="/services" className="hover:text-[#814AC8] transition-colors duration-300">Services</Link>
                             {/* Dropdown */}
                             <ul className={`${isDark ? 'text-gray-100' : 'text-[#000000]'} absolute left-0 hidden group-hover:block bg-white shadow-md py-2 mt-1 rounded-md w-48 transition-all duration-300`}>
                                 <li><Link href="#" className={`text-[#000000] block px-4 py-2 hover:text-[#814AC8] hover:bg-gray-100`}>Service 1</Link></li>
@@ -66,11 +75,11 @@ export default function NewHeader() {
                         </li>
                         <li><Link href="#" className="hover:text-[#814AC8] transition-colors duration-300">Contact</Link></li>
                         <li>
-                            <Link href="#" className="bg-[#814AC8] text-white px-4 py-2 rounded-md ">
-                                Get Started
+                            <Link href="/login" className="bg-[#814AC8] text-white px-4 py-2 rounded-md flex gap-2.5 items-center">
+                                <ArrowRightToLine size={16} /> Sign In
                             </Link>
                         </li>
-                        <div className="lg:mt-[-5px]">
+                        <div className="">
                             <ToggleButton />
                         </div>
 
@@ -82,7 +91,7 @@ export default function NewHeader() {
             {/* Mobile Menu */}
             {
                 mobileMenuOpen && (
-                    <nav className={`${isDark ? 'text-gray-100' : 'text-[#000000]'} hover:text-[#814AC8] md:hidden bg-gray-50 border-t border-gray-200 transition-all duration-300`}>
+                    <nav className={`${isDark ? 'text-gray-100 bg-transparent' : 'text-[#000000]'} hover:text-[#814AC8] md:hidden bg-gray-50 border-t border-gray-200 transition-all duration-300`}>
                         <ul className="px-4 py-2">
                             <li><Link href="#" className="block py-2 hover:text-[#814AC8]">Home</Link></li>
                             <li><Link href="#" className="block py-2 hover:text-[#814AC8]">About</Link></li>
@@ -103,10 +112,11 @@ export default function NewHeader() {
                             </li>
                             <li><Link href="#" className="block py-2 hover:text-[#814AC8]">Contact</Link></li>
                             <li>
-                                <Link href="#" className="bg-[#814AC8] block py-2 text-white rounded-md text-center transition-colors duration-300">
-                                    Get Started
+                                <Link href="#" className="bg-[#814AC8] py-2 text-white rounded-md text-center transition-colors duration-300 flex justify-center gap-2.5 items-center">
+                                    <ArrowRightToLine size={16} /> Sign In
                                 </Link>
                             </li>
+
                         </ul>
                     </nav>
                 )
