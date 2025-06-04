@@ -9,25 +9,36 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        meteor: "meteor var(--duration, 10s) linear infinite",
+        meteor: 'meteor var(--duration, 10s) linear infinite',
+         orbit: "orbit calc(var(--duration)*1s) linear infinite",
       },
       keyframes: {
         meteor: {
-          "0%": { transform: "translateY(-20%)", opacity: "0" },
-          "30%": { opacity: "1" },
-          "100%": { transform: "translateY(120vh)", opacity: "0" },
+          '0%': { transform: 'translateY(-20%)', opacity: '0' },
+          '30%': { opacity: '1' },
+          '100%': { transform: 'translateY(120vh)', opacity: '0' },
+        },
+         orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
         },
       },
-    },
-    colors: {
-      secondary: "#BABABA",
-      blue: {
-        500: "#4762ff",
-        600: " #121127",
-        100: "#F4F6FA",
+      colors: {
+        secondary: '#BABABA',
+        blue: {
+          500: '#4762ff',
+          600: '#121127',
+          100: '#F4F6FA',
+        },
+        dark: '#2A2B2E',
       },
-      dark: "#2A2B2E"
-    }
+    },
   },
   plugins: [],
 }
