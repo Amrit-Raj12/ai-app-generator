@@ -202,3 +202,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-cursor {
+  cursor: url('/custom-cursor.png') 2 2, default;
+}
+
+.custom-cursor-pointer {
+  cursor: url('/custom-cursor-pointer.png') 2 2, pointer;
+}
