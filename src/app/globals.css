@@ -210,3 +210,30 @@
 .custom-cursor-pointer {
   cursor: url('/custom-cursor-pointer.png') 2 2, pointer;
 }
+
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #814AC8;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #814AC8;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #814AC8 transparent;
+}
+
+/* Optional: smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
