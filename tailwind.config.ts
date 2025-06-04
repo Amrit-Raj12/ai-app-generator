@@ -36,6 +36,7 @@ const config: Config = {
           600: '#121127',
           100: '#F4F6FA',
         },
+        primary: '#814AC8',
         dark: '#2A2B2E',
       },
     },
