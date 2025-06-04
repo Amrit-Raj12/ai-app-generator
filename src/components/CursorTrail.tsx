@@ -43,18 +43,18 @@ const CursorTrail = () => {
     const createSparkles = (x: number, y: number) => {
       const sparkleCount = 12 + Math.random() * 8; // 12-20 sparkles
       const colors = [
-        'rgba(255, 255, 255, ',
-        'rgba(255, 255, 200, ',
-        'rgba(200, 230, 255, ',
-        'rgba(255, 220, 255, ',
-        'rgba(220, 255, 255, '
+        'rgba(160, 32, 240, ',   // purple
+        'rgba(186, 85, 211, ',   // medium orchid
+        'rgba(221, 160, 221, ',  // plum
+        'rgba(147, 112, 219, ',  // medium purple
+        'rgba(138, 43, 226, '    // blue violet
       ];
 
       for (let i = 0; i < sparkleCount; i++) {
         const angle = (Math.PI * 2 * i) / sparkleCount + Math.random() * 0.5;
         const velocity = 2 + Math.random() * 4;
         const life = 30 + Math.random() * 20;
-        
+
         sparkles.current.push({
           x,
           y,
@@ -71,7 +71,7 @@ const CursorTrail = () => {
 
     const handleMouseClick = (e: MouseEvent) => {
       createSparkles(e.clientX, e.clientY);
-      
+
       // Add extra bright flash at click point
       trailPoints.current.push({
         x: e.clientX,
@@ -82,7 +82,7 @@ const CursorTrail = () => {
     };
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      
+
       // Add new trail point
       trailPoints.current.push({
         x: e.clientX,
@@ -125,7 +125,7 @@ const CursorTrail = () => {
           point.x, point.y, 0,
           point.x, point.y, point.size * 2
         );
-        
+
         gradient.addColorStop(0, `rgba(255, 255, 255, ${point.opacity})`);
         gradient.addColorStop(0.3, `rgba(255, 255, 255, ${point.opacity * 0.6})`);
         gradient.addColorStop(0.6, `rgba(200, 230, 255, ${point.opacity * 0.3})`);
@@ -156,7 +156,7 @@ const CursorTrail = () => {
           sparkle.x, sparkle.y, 0,
           sparkle.x, sparkle.y, sparkle.size * 3
         );
-        
+
         gradient.addColorStop(0, `${sparkle.color}${sparkle.opacity})`);
         gradient.addColorStop(0.5, `${sparkle.color}${sparkle.opacity * 0.5})`);
         gradient.addColorStop(1, `${sparkle.color}0)`);
@@ -185,15 +185,15 @@ const CursorTrail = () => {
           ctx.strokeStyle = `rgba(255, 255, 255, ${sparkle.opacity * 0.7})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
-          
+
           // Horizontal line
           ctx.moveTo(sparkle.x - sparkle.size * 2, sparkle.y);
           ctx.lineTo(sparkle.x + sparkle.size * 2, sparkle.y);
-          
+
           // Vertical line
           ctx.moveTo(sparkle.x, sparkle.y - sparkle.size * 2);
           ctx.lineTo(sparkle.x, sparkle.y + sparkle.size * 2);
-          
+
           ctx.stroke();
           ctx.restore();
         }
