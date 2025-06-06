@@ -11,18 +11,18 @@ const MarqueeSection = () => {
     const [isDark, setIsDark] = useState(false)
  
  const logos = [
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
-    '/delta.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
+    '/ai.png',
   ];
 
     useEffect(() => {
