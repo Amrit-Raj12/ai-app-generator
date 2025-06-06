@@ -15,22 +15,13 @@ export default function Home() {
   return (
     <>
    {/* Hero Section with Motion */}
-      <motion.div
-        ref={heroRef}
-        initial={{ opacity: 0, x: -100, filter: "blur(8px)" }}
-        animate={isHeroInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-        className="overflow-x-hidden"
-      >
         <HeroSection />
-      </motion.div>
-
       {/* Marquee Section with Motion */}
       <motion.div
         ref={marqueeRef}
         initial={{ opacity: 0, x: -100, filter: "blur(8px)" }}
         animate={isMarqueeInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
       >
         <MarqueeSection />
       </motion.div>
